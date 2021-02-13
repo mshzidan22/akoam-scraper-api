@@ -4,10 +4,9 @@ import {run} from './script'
 
 const app = express();
 const port = 3001;
-// app.get('/', (req, res) => {
-//     let akoamLink = new AkoamLink();
-//     run(akoamLink).then(out => res.send(out))
-// });
+app.get('/', (req, res) => {
+res.send("hi")
+});
 
 app.get('/akoamapi', (req, res) => {
     const link = req.query.link;
