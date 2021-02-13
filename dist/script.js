@@ -11,7 +11,7 @@ const episodeLinksScraper_1 = require("./episodeLinksScraper");
 // let akoamLink = new AkoamLink();
 // run(akoamLink)
 async function run(akoamLink) {
-    const browser = await puppeteer_extra_1.default.use(puppeteer_extra_plugin_stealth_1.default()).launch({ headless: false, devtools: true });
+    const browser = await puppeteer_extra_1.default.use(puppeteer_extra_plugin_stealth_1.default()).launch({ args: ['--no-sandbox', '--disable-setuid-sandbox'] });
     const page = await browser.newPage();
     await page.setRequestInterception(true);
     page.on('request', (request) => {
