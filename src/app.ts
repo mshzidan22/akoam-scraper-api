@@ -3,7 +3,7 @@ import { AkoamLink } from './AkoamLink';
 import {run} from './script'
 
 const app = express();
-const port = 3001;
+const port = process.env.PORT || 3000
 app.get('/', (req, res) => {
 res.send("hi")
 });
@@ -19,6 +19,11 @@ app.get('/akoamapi', (req, res) => {
     .setEpisodeToscrap(episodeToscrap).setNeededQuality(neededQuality)
 
     run(akoamLink).then(out => res.send(out)).catch(console.log)
+});
+
+app.get('/close', function(req,res) {
+  res.send('closing..');
+  app.close();
 });
 
 app.listen(port, err => {
