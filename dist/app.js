@@ -7,11 +7,10 @@ const express_1 = __importDefault(require("express"));
 const AkoamLink_1 = require("./AkoamLink");
 const script_1 = require("./script");
 const app = express_1.default();
-const port = 3001;
-// app.get('/', (req, res) => {
-//     let akoamLink = new AkoamLink();
-//     run(akoamLink).then(out => res.send(out))
-// });
+const port = process.env.PORT || 3000;
+app.get('/', (req, res) => {
+    res.send("hi");
+});
 app.get('/akoamapi', (req, res) => {
     const link = req.query.link;
     const isPlayList = req.query.isPlayList;
@@ -22,6 +21,10 @@ app.get('/akoamapi', (req, res) => {
     akoamLink.setLink(link).setIsPlayList(isPlayList).setMostRecent(mostRecent)
         .setEpisodeToscrap(episodeToscrap).setNeededQuality(neededQuality);
     script_1.run(akoamLink).then(out => res.send(out)).catch(console.log);
+});
+app.get('/close', function (req, res) {
+    res.send('closing..');
+    app.close();
 });
 app.listen(port, err => {
     if (err) {
