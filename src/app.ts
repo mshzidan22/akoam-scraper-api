@@ -5,6 +5,7 @@ import {run} from './script'
 const app = express();
 const port = process.env.PORT || 3000
 app.get('/', (req, res) => {
+  console.log("hi")
 res.send("hi")
 });
 
@@ -21,10 +22,6 @@ app.get('/akoamapi', (req, res) => {
     run(akoamLink).then(out => res.send(out)).catch(console.log)
 });
 
-app.get('/close', function(req,res) {
-  res.send('closing..');
-  app.close();
-});
 
 app.listen(port, err => {
   if (err) {
