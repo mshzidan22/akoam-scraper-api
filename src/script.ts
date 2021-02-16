@@ -16,7 +16,7 @@ import { Output } from './Output';
 
 export async function run(akoamLink : AkoamLink){
       
-    const browser = await puppeteer.use(StealthPlugin()).launch({args: ['--no-sandbox','--disable-setuid-sandbox']});
+    const browser = await puppeteer.use(StealthPlugin()).launch({headless:true, args: ['--no-sandbox','--disable-setuid-sandbox',"--no-zygote"]});
     const page = await browser.newPage();
     await page.setRequestInterception(true);
     page.on('request', (request) => {

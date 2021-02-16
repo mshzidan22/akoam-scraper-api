@@ -9,6 +9,7 @@ const script_1 = require("./script");
 const app = express_1.default();
 const port = process.env.PORT || 3000;
 app.get('/', (req, res) => {
+    console.log("hi");
     res.send("hi");
 });
 app.get('/akoamapi', (req, res) => {
@@ -21,10 +22,6 @@ app.get('/akoamapi', (req, res) => {
     akoamLink.setLink(link).setIsPlayList(isPlayList).setMostRecent(mostRecent)
         .setEpisodeToscrap(episodeToscrap).setNeededQuality(neededQuality);
     script_1.run(akoamLink).then(out => res.send(out)).catch(console.log);
-});
-app.get('/close', function (req, res) {
-    res.send('closing..');
-    app.close();
 });
 app.listen(port, err => {
     if (err) {

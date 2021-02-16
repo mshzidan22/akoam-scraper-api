@@ -9,7 +9,6 @@
         "start": "ts-node ./src/app.ts",
         "dev": "tsc --watch & nodemon dist",
         "build": "npm install --only=dev"
-
     },
     "keywords": [],
     "author": "",
