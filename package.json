@@ -5,14 +5,14 @@
     "main": "./dist/app.js",
     "types": "./dist/app.js",
 
-    "engines": {
-        "node": "12.x"
-    },
+
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "start": "ts-node ./src/app.ts",
         "dev": "tsc --watch & nodemon dist",
-        "build": "tsc"
+        "build": "tsc",
+        "postinstall": "npm run build"
+
     },
     "keywords": [],
     "author": "",
