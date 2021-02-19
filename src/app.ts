@@ -1,13 +1,14 @@
 import express from 'express';
 import { AkoamLink } from './AkoamLink';
 import {run} from './script'
+var path = require('path');
 
 const app = express();
 const port = process.env.PORT || 3000
 app.get('/', (req, res) => {
-  console.log("hi")
-res.send("hi")
-});
+  
+  res.sendFile(path.join(__dirname + '/index.html'));
+})
 
 app.get('/akoamapi', (req, res) => {
     const link = req.query.link;
@@ -18,6 +19,8 @@ app.get('/akoamapi', (req, res) => {
     let akoamLink = new AkoamLink()
     akoamLink.setLink(link).setIsPlayList(isPlayList).setMostRecent(mostRecent)
     .setEpisodeToscrap(episodeToscrap).setNeededQuality(neededQuality)
+
+    console.log(akoamLink.mostRecent + "is the most recent")
 
     run(akoamLink).then(out => res.send(out)).catch(console.log)
 });

@@ -27,7 +27,8 @@ export class AkoamLink{
         return this;
     }
     setIsPlayList(isPlayList : boolean){
-        if(isPlayList) this.isPlayList = isPlayList
+        if(isPlayList) 
+        this.isPlayList = isPlayList
         return this;
     }
     setNeededQuality(neededQuality : string){
@@ -35,7 +36,8 @@ export class AkoamLink{
         return this;
     }
     setMostRecent(mostRecent : boolean){
-        if(mostRecent )this.mostRecent = mostRecent
+        if(mostRecent) 
+        this.mostRecent = mostRecent
         return this;
     }
     setEpisodeToscrap(episodeToscrap : number){

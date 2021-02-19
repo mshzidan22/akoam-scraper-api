@@ -15,7 +15,11 @@ public static async getEpisode(akoamLink : AkoamLink , page : Page ,eiposidesCon
     let links = await page.$$eval(eiposidesContainer, elements => {
        return elements.map(episode => episode.getAttribute('href'))
     })
-     if(!akoamLink.mostRecent) links.reverse();
+     //if most recent == true  you should not reverse
+     //if most recent == false you should reverse
+
+     if(akoamLink.mostRecent == false) links.reverse();
+     console.log(links)
      let totalEpisodeToScrape = (akoamLink.episodeToscrap == undefined)? links.length + 1 : akoamLink.episodeToscrap;
     return links.slice(0 ,totalEpisodeToScrape)
 

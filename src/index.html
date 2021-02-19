@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akoam</title>
+</head>
+
+<body>
+    <form action="/akoamapi" method="get">
+
+
+        AKoam URL<input type="text" name="link"> is playList <select name="isPlayList">
+            <option value="true">yes</option>
+            <option value="false">no</option>
+        </select> Quality <select name="neededQuality">
+             <option value="480p">480p</option>
+             <option value="720p">720p</option>
+             <option value="1080p">1080p</option>
+      </select> episode to scrap <input type="number" name="episodeToscrap"> order
+        <select name="mostRecent">
+           <option value="false"> From begining</option>
+           <option value="true"> most Recent</option>
+       </select>
+        <button type="submit">submit</button>
+
+    </form>
+</body>
+
+<script>
+</script>
+
+</html>
